@@ -1,17 +1,13 @@
 package com.project.usermanagement.dao.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -38,8 +34,6 @@ public class User extends AbstractEntity{
     @Column(nullable = false,unique = true)
     private String email;
 
-    @Column
-    private LocalDateTime lastConnectionAt;
 
     @OneToMany
     private List<Right> rights;
