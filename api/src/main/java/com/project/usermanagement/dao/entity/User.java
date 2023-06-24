@@ -1,15 +1,13 @@
 package com.project.usermanagement.dao.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,15 +33,12 @@ public class User extends AbstractEntity{
     private String email;
 
 
-    @OneToMany
+    @ManyToMany
     private List<Right> rights;
 
     @Column(nullable = false, columnDefinition = "int default 1")
     @Builder.Default
     protected Integer isEnabled = 1;
 
-    public String fullName(){
-        return this.firstName == null || this.lastName == null ? "" : this .firstName + " " + this.lastName;
-    }
 
 }

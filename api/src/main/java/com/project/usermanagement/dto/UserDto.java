@@ -22,5 +22,5 @@ public class UserDto {
 
     private String email;
 
-    private List<Right> rights;
+    private List<RightDto> rights;
 }
