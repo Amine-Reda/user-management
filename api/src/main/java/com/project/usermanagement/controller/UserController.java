@@ -19,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController()
-@RequestMapping("/user")
+@RequestMapping("/users")
 @Slf4j
 @Api(tags = {SwaggerConfig.USER_CONTROLLER_TAG})
 @RequiredArgsConstructor
