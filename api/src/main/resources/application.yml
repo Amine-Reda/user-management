@@ -5,9 +5,9 @@ spring:
     time-zone: UTC
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/usermanagement
+    url: jdbc:postgresql://localhost:5432/usermanagement1
     hikari:
-      schema: usermanagement
+      schema: usermanagement1
       username: postgres
       password: root
   jpa:
@@ -18,6 +18,6 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
-        default_schema: usermanagement
+        default_schema: usermanagement1
         jdbc:
          time_zone: UTC

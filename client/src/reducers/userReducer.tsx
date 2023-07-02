@@ -1,40 +1,26 @@
-import {GET_USERS, CREATE_USER, DELETE_USER, UPDATE_USER, GET_USER, SET_USERS} from '../actions/types'
+import {GET_USERS, DELETE_USER, GET_USER,} from '../actions/types'
 import User from "../interfaces/user.interface";
+
 
 interface UserState {
     users: User[];
-    currentUser: User | null;
-    loading: boolean;
-    error: string | null;
+    userToUpdate:User;
 }
 
 const initialState: UserState = {
     users: [],
-    currentUser: null,
-    loading: false,
-    error: null,
+    userToUpdate:{id:0,firstName:'',lastName:'',email:''}
 };
 
 
 export default function (state = initialState, action:any) {
     switch (action.type) {
         case GET_USERS:
-            return {...state,users:action.payload,loading:true,error:null}
+            return {...state,users:action.payload,}
         case GET_USER:
-            return {...state,loading:true,error: null}
+            return {...state,userToUpdate:action.payload,}
         case DELETE_USER:
-            return
-        case CREATE_USER:
-            return
-        case UPDATE_USER:
-            return
-        case SET_USERS:
-            return {
-                ...state,
-                users: action.payload,
-                loading: false,
-                error: null,
-            };
+            return {...state,users:state.users.filter(x => x.id !== action.payload)}
         default:
             return state;
     }

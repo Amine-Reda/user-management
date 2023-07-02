@@ -1,7 +1,6 @@
 package com.project.usermanagement.dao.exception;
 
 
-import com.project.usermanagement.dao.exception.Right.RightNotFoundException;
 import com.project.usermanagement.dao.exception.User.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
    @ExceptionHandler({
            UserNotFoundException.class,
-           RightNotFoundException.class
    })
    protected ResponseEntity<UserManagementError> handleNotFoundException(UserManagementException userManagementException) {
        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(

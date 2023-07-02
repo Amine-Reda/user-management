@@ -5,8 +5,7 @@ import lombok.Getter;
 @Getter
 public enum UserManagementCodes {
     // User not found
-    USER_NOT_FOUND("User not found", 1),
-    RIGHT_NOT_FOUND("Right not found", 2);
+    USER_NOT_FOUND("User not found", 1);
 
     private final String message;
     private final Integer code;

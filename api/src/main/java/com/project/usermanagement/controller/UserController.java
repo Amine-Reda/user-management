@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController()
 @RequestMapping("/users")
 @Slf4j
@@ -54,6 +55,21 @@ public class UserController {
             @RequestBody @Valid PostUserDto createUserDto) throws CustomizedException {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userMapper.userToPostUserDto(userService.createUser(createUserDto)));
+    }
+
+    @ApiOperation(value = "Get user",
+            responseContainer = "User")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Return user"),
+            @ApiResponse(code = 500, message = "Email already exist !"),
+    })
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserDto> getUser(
+            @ApiParam(name = "userId", type = "Long", value = "The id of user", example = "1", required = true)
+            @PathVariable Long userId
+    ) throws CustomizedException, UserNotFoundException {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userMapper.userToUserDto(userService.getUser(userId)));
     }
 
     @ApiOperation(value = "Update user",

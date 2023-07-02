@@ -1,6 +1,5 @@
 package com.project.usermanagement.dto;
 
-import com.project.usermanagement.dao.entity.Right;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +13,8 @@ import java.util.List;
 @Builder
 public class UserDto {
 
+    private Long id;
+
     private String sub;
 
     private String firstName;
@@ -22,5 +23,4 @@ public class UserDto {
 
     private String email;
 
-    private List<RightDto> rights;
 }

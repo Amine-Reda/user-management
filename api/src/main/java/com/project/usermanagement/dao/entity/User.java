@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
+
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -32,9 +32,6 @@ public class User extends AbstractEntity{
     @Column(nullable = false,unique = true)
     private String email;
 
-
-    @ManyToMany
-    private List<Right> rights;
 
     @Column(nullable = false, columnDefinition = "int default 1")
     @Builder.Default
